@@ -1,0 +1,55 @@
+{% extends '/tpl/inc/page.twig' %}
+{% block content %}
+    <form class="main">
+        <h1 class="main__header">Список дел</h1>
+        <div class="custom-checkbox-wrapper-shadow">
+            <div class="custom-checkbox-wrapper">
+                <label class="container custom-checkbox">
+                    <span class="custom-checkbox__header">Задача 1</span>
+                    <span class="custom-checkbox__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться</span>
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                    <span class="custom-checkbox__delete">{% include 'tpl/inc/svg/cart.svg' %}</span>
+                </label>
+            </div>
+        </div>
+        <div class="custom-checkbox-wrapper-shadow">
+            <div class="custom-checkbox-wrapper">
+                <label class="container custom-checkbox">
+                    <span class="custom-checkbox__header">Задача 2</span>
+                    <span class="custom-checkbox__text">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые</span>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="custom-checkbox__delete">{% include 'tpl/inc/svg/cart.svg' %}</span>
+                </label>
+            </div>
+        </div>
+        <div class="custom-checkbox-wrapper-shadow">
+            <div class="custom-checkbox-wrapper">
+            <label class="container custom-checkbox">
+                <span class="custom-checkbox__header">Задача 3</span>
+                <span class="custom-checkbox__text">Здесь ваш текст.." Многие программы электронной верстки и редакторы HTML</span>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="custom-checkbox__delete">{% include 'tpl/inc/svg/cart.svg' %}</span>
+            </label>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="main__header-small">
+            Новая задача
+        </div>
+
+        <div class="add-block-wrapper-shadow">
+            <div class="add-block-wrapper">
+                <div class="add-block">
+                    <div class="add-block__name">Название задачи</div>
+                    <input type="text" placeholder="Введите название задачи">
+                    <div class="add-block__name">Описание задачи</div>
+                    <textarea placeholder="Опишите вашу задачу"></textarea>
+                    <button class="btn btn--gradient">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

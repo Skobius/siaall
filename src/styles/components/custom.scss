@@ -1,0 +1,205 @@
+.custom-checkbox-wrapper-shadow {
+  filter: drop-shadow(0 rem(5) rem(50) rgba(0,0,0,0.1));
+
+  &:hover {
+    filter: drop-shadow(0px 9px 50px rgba(0,221,118,0.2));
+  }
+}
+
+.custom-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(9% 0, 100% 1%, 100% 100%, 0 100%, 0 28%);
+  background: $blue;
+  width: 100%;
+  border-radius: rem(38);
+  margin-bottom: rem(25);
+  padding: rem(4) 0 rem(3);
+
+  @include media-breakpoint-down(tab) {
+    clip-path: polygon(9% 0, 100% 1%, 100% 100%, 0 100%, 0 12%);
+  }
+
+  &:hover {
+    background: $green;
+  }
+}
+
+.custom-checkbox {
+  /* Customize the label (the container) */
+  &.container {
+    //box-shadow: 0 rem(5) rem(50) rgba(0,0,0,0.1);
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: $font-family-roboto-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: rem(14);
+    line-height: rem(18);
+    letter-spacing: 0.01em;
+    color: #63676B;
+    width: calc(100% - 5px);
+    height: auto;
+    background-color: $white;
+    flex-direction: column;
+    padding-left: rem(140);
+    justify-content: flex-start;
+    padding-top: rem(40);
+    padding-bottom: rem(28);
+    border-radius: rem(38);
+    clip-path: polygon(8.5% 0, 100% 1%, 100% 100%, 0 100%, 0 28%);
+    margin-left: 2px;
+
+    @include media-breakpoint-down(tab) {
+      clip-path: polygon(8.5% 0, 100% 1%, 100% 100%, 0 100%, 0 12%);
+    }
+
+
+    @include media-breakpoint-down(tab) {
+      padding-left: rem(20);
+      padding-top: rem(140);
+    }
+
+    &:hover {
+      .custom-checkbox__header {
+        color: $green;
+      }
+    }
+  }
+
+  &__header {
+    font-size: rem(30);
+    letter-spacing: 0;
+    color: $black;
+    font-family: $font-family-roboto-black;
+
+    @include media-breakpoint-down(tab) {
+      font-size: rem(18);
+    }
+  }
+
+  &__text {
+    margin-top: rem(20);
+    font-size: rem(22);
+    line-height: rem(24);
+    color: $black;
+    font-family: $font-family-roboto-regular;
+    max-width: rem(640);
+
+    @include media-breakpoint-down(tab) {
+      max-width: rem(410);
+      font-size: rem(14);
+    }
+  }
+
+  &__count {
+    font-family: $font-family-roboto-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: rem(10);
+    line-height: rem(18);
+    width: rem(30);
+    text-align: right;
+    letter-spacing: 0.01em;
+    color: #56CD51;
+    transform: rotate(0.18deg);
+  }
+
+  &__delete {
+    position: absolute;
+    top: rem(40);
+    right: rem(38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(74);
+    height: rem(74);
+    background-color: #ffffff;
+    border: 1px solid rgba(246,61,114,0.2);
+    border-radius: 100%;
+
+    svg {
+      width: rem(33);
+      height: rem(39);
+    }
+
+    &:hover {
+      background-color: rgba(253,72,123,0.10196078431372549);
+    }
+  }
+
+  /* Hide the browser's default checkbox */
+  &.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: rem(50);
+    left: rem(46);
+    width: rem(56);
+    height: rem(56);
+    border-radius: 16px;
+    box-shadow: 0 rem(3) rem(15) rgba(181,181,181,0.5);
+    background-color: #ffffff;
+  }
+
+  /* On mouse-over, add a grey background color */
+  &.container:hover input ~ .checkmark {
+    //background-color: #ccc;
+    border: 2px solid #cbf6e1;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  &.container input:checked ~ .checkmark {
+    border: 1px solid #56CD51;
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: 0px 5px 15px rgba(20,188,92,0.5);
+    background-image: linear-gradient(148deg, #20d781 0%, #0eaf4a 100%);
+  }
+
+  &.container input ~ .view-more {
+    display: none;
+  }
+
+  &.container input:checked ~ .view-more {
+    display: block;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  &.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  &.container .checkmark:after {
+    left: rem(23);
+    top: rem(12);
+    width: rem(10);
+    height: rem(20);
+    border: solid $white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
